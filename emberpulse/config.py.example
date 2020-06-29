@@ -1,0 +1,52 @@
+# Emberpulse credentials
+emberpulse_url = 'https://emberpulse.com.au'
+username = ''
+password = ''
+
+# Telegraf
+telegraf_url = 'http://url.to.telegraf.http_listener_v2:8080/telegraf'
+telegraf_timezone = 'UTC'
+
+# Temporary web session storage
+session_file = f'{__import__("os").path.dirname(__file__)}/tmp/emberpulse.session'
+
+# Devices
+devices = [
+    {
+        'name': 'grid',
+        'device_id': 'DEVICE_UUID',
+        'device_input': '01',
+        'metric': 'avgw',
+    },
+    {
+        'name': 'solar',
+        'device_id': 'DEVICE_UUID',
+        'device_input': '02',
+        'metric': 'avgw',
+    },
+    {
+        'name': 'hot_water',
+        'device_id': 'DEVICE_UUID',
+        'device_input': '03',
+        'metric': 'avgw',
+    },
+    {
+        'name': 'primary_ac',
+        'device_id': 'DEVICE_UUID',
+        'device_input': '04',
+        'metric': 'avgw',
+    },
+]
+
+# Other metrics to collect
+metrics = {
+    'temperature': {
+        'name': 'temperature',
+    },
+    'humidity': {
+        'name': 'humidity',
+    },
+}
+
+# Set this to true to not send data to Telegraf
+debug = False
