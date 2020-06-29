@@ -1,0 +1,10 @@
+version: '2.4'
+
+services:
+  emberpulse:
+    image: 'samburney/emberpulse:latest'
+    build: '.'
+    restart: 'unless-stopped'
+    volumes:
+      - '/etc/timezone:/etc/timezone:ro'
+      - './emberpulse/config.py:/opt/emberpulse/emberpulse/config.py'

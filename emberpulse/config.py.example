@@ -8,7 +8,7 @@ telegraf_url = 'http://url.to.telegraf.http_listener_v2:8080/telegraf'
 telegraf_timezone = 'UTC'
 
 # Temporary web session storage
-session_file = f'{__import__("os").path.dirname(__file__)}/tmp/emberpulse.session'
+session_file = f'/var/run/emberpulse.session'
 
 # Devices
 devices = [
