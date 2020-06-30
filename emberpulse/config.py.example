@@ -48,5 +48,8 @@ metrics = {
     },
 }
 
-# Set this to true to not send data to Telegraf
+# Debug mode disables sending data to Telegraf
 debug = False
+
+# Verbose mode outputs messages to stdout
+verbose = True

@@ -99,7 +99,8 @@ def process_data(endpoint, data):
     if output_data is not None:
         if config.debug is False:
             r = requests.post(config.telegraf_url, json=output_data)
-            print(r.status_code, output_data)
+            if config.verbose is True:
+                print(r.status_code, output_data)
         else:
             print('DEBUG', output_data)
 
