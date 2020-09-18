@@ -1,4 +1,5 @@
 import os
+import datetime
 import requests
 import pickle
 from bs4 import BeautifulSoup
@@ -11,10 +12,18 @@ def start_session():
 
     # Check if session file exists
     if os.path.isfile(config.session_file):
-        with open(config.session_file, 'rb') as f:
-            s = pickle.load(f)
+        # Check age of file, create new session if old one is > 15 minutes old
+        file_modified = os.stat(config.session_file).st_mtime
+        time_now = datetime.datetime.timestamp(datetime.datetime.now())
+        file_age = time_now - file_modified
 
-    else:
+        if file_age < 900:
+            print(f"existing session; file age: {file_age}")
+            with open(config.session_file, 'rb') as f:
+                s = pickle.load(f)
+
+    if s is None:
+        print("new session")
         s = requests.Session()
 
         # Open login page and get _csrf value
