@@ -18,12 +18,12 @@ def start_session():
         file_age = time_now - file_modified
 
         if file_age < 900:
-            print(f"existing session; file age: {file_age}")
+            print(f"Reusing existing session")
             with open(config.session_file, 'rb') as f:
                 s = pickle.load(f)
 
     if s is None:
-        print("new session")
+        print("Creating new session")
         s = requests.Session()
 
         # Open login page and get _csrf value
