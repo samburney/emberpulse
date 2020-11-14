@@ -8,3 +8,10 @@ services:
     volumes:
       - '/etc/timezone:/etc/timezone:ro'
       - './emberpulse/config.py:/opt/emberpulse/emberpulse/config.py'
+    networks:
+      telegraf:
+
+networks:
+  telegraf:
+    external:
+      name: 'telegraf_default'
